@@ -20,6 +20,11 @@ documentation for details.
    :undoc-members:
    :show-inheritance:
 
+.. automodule:: inClass20250902
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
