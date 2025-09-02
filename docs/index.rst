@@ -15,6 +15,11 @@ documentation for details.
    :undoc-members:
    :show-inheritance:
 
+.. automodule:: lecture05b
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
