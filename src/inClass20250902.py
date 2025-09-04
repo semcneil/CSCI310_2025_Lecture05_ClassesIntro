@@ -153,4 +153,4 @@ if __name__ == "__main__":
     sleep(2) # wait for 2 seconds
     print(f'{dog1.name} is {dog1.age()} seconds old and is a {dog1.animal_type}')
 
-    pdb.set_trace()
+    pdb.set_trace()  # pause to explore and debug the values
