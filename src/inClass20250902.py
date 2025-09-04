@@ -77,7 +77,17 @@ class animal:
         return self.name + " is a " + self.animal_type 
 
     def age(self):
-        return datetime.now() - self.birthday
+        """
+        Returns the animals age in seconds
+
+        Also see age().total_seconds()
+
+        Returns
+        --------
+        age : float
+          The animal's age in seconds
+        """
+        return (datetime.now() - self.birthday).total_seconds()
 
 if __name__ == "__main__":
     d6a = MSDie(6)
