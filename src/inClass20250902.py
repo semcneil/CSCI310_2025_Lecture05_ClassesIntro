@@ -11,15 +11,23 @@ This is demonstrating starting a class in class.
 import random  # so that we can random rolls
 from datetime import datetime  # For getting the current time
 import pdb  # for debugging
+from time import sleep  # for delaying
 
 class MSDie:
     """
     Multi-sided die
 
-    Attributes:
-    ------------
+    Parameter
+    ---------
+    num_sides : int
+      Number of sides for the die
+
+    Attributes
+    ----------
     num_sides : int
         number of sides for the die
+    current_value : int
+        Value from the last roll
     """
 
     def __init__(self, num_sides):
@@ -33,6 +41,11 @@ class MSDie:
     def roll(self):
         """
         Roll the die to get a random number between 1 and num_sides
+
+        Returns
+        --------
+        current_value : int
+          The value from the last roll
         """
         self.current_value = random.randrange(1, self.num_sides+1)
         return self.current_value
@@ -49,6 +62,18 @@ class namedMSDie(MSDie):
     Named MSDie 
 
     Includes a name as well as everything from MSDie
+
+    Parameters
+    ----------
+    num_sides : int
+      Number of sides for the die
+    name : str
+      Name for die
+
+    Attributes
+    ----------
+    name : str
+        Name for the die
     """
 
     def __init__(self, num_sides, dName):
@@ -66,6 +91,13 @@ class namedMSDie(MSDie):
 class animal:
     """
     Animal class
+
+    Parameters
+    ----------
+    name : str
+      name for animal
+    type : str
+      type of animal 
     """
     
     def __init__(self, name, animal_type):
@@ -89,6 +121,20 @@ class animal:
         """
         return (datetime.now() - self.birthday).total_seconds()
 
+class myDog(animal):
+    """
+    myDog class that inherits from animal but presets the type to 'dog'
+
+    Parameters
+    ----------
+    name : str
+      Name for dog
+    """
+
+    def __init__(self, name):
+        super().__init__(name, 'dog')
+        self.nLegs = 4
+
 if __name__ == "__main__":
     d6a = MSDie(6)
     print(d6a)
@@ -102,5 +148,9 @@ if __name__ == "__main__":
     print("our new named die")
     nd1 = namedMSDie(9, 'charlie')
     print(nd1)
+
+    dog1 = myDog('fido')
+    sleep(2) # wait for 2 seconds
+    print(f'{dog1.name} is {dog1.age()} seconds old and is a {dog1.animal_type}')
 
     pdb.set_trace()
