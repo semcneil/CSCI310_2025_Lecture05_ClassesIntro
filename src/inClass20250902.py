@@ -26,12 +26,13 @@ class MSDie:
         """
         self.num_sides = num_sides
         self.current_value = self.roll()
+        print(f'MSDie init ran, num_sides is {self.num_sides}')
 
     def roll(self):
         """
         Roll the die to get a random number between 1 and num_sides
         """
-        self.current_value = random.randrange(1, self.num_sides)
+        self.current_value = random.randrange(1, self.num_sides+1)
         return self.current_value
     
     def __str__(self):
@@ -39,6 +40,25 @@ class MSDie:
 
     def __repr__(self):
         return str(self.current_value)
+
+
+class namedMSDie(MSDie):
+    """
+    Named MSDie 
+
+    Includes a name as well as everything from MSDie
+    """
+
+    def __init__(self, num_sides, dName):
+        super().__init__(num_sides)
+        self.name = dName
+        print('namedMSDie init ran')
+
+    def __str__(self):
+        return self.name + ' : ' + str(self.current_value)
+
+    def __repr__(self):
+        return self.name + ' : ' + str(self.current_value)
 
 
 class animal:
@@ -62,3 +82,7 @@ if __name__ == "__main__":
 
     a1 = animal("bob", "bird")
     print(a1)
+    
+    print("our new named die")
+    nd1 = namedMSDie(9, 'charlie')
+    print(nd1)

@@ -38,6 +38,7 @@ class MSDie:
         num_side : int
           The number of sides to make the die
         """
+        print('MSDie __init__ running')
         self.num_sides = num_sides
         self.current_value = self.roll()
 
@@ -66,6 +67,7 @@ class namedMSDie(MSDie):
     """
     def __init__(self, name, num_sides):
         super().__init__(num_sides)
+        print('namedMSDie __init__ running')
         self.name = name
 
     def __str__(self):
