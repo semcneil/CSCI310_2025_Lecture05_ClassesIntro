@@ -9,6 +9,8 @@ This is demonstrating starting a class in class.
 """
 
 import random  # so that we can random rolls
+from datetime import datetime  # For getting the current time
+import pdb  # for debugging
 
 class MSDie:
     """
@@ -69,9 +71,13 @@ class animal:
     def __init__(self, name, animal_type):
         self.name = name
         self.animal_type = animal_type
+        self.birthday = datetime.now()
 
     def __str__(self):
         return self.name + " is a " + self.animal_type 
+
+    def age(self):
+        return datetime.now() - self.birthday
 
 if __name__ == "__main__":
     d6a = MSDie(6)
@@ -86,3 +92,5 @@ if __name__ == "__main__":
     print("our new named die")
     nd1 = namedMSDie(9, 'charlie')
     print(nd1)
+
+    pdb.set_trace()
