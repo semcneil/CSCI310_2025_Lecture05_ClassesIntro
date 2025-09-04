@@ -53,11 +53,50 @@ class MSDie:
     def __repr__(self):
         return "MSDie({}) : {}".format(self.num_sides, self.current_value)
 
+class namedMSDie(MSDie):
+    """
+    An MSDie with name inheritance example
+    
+    Attributes
+    ----------
+    name : str
+      A name for the die
+    num_sides : int
+       Number of sides on the die
+    """
+    def __init__(self, name, num_sides):
+        super().__init__(num_sides)
+        self.name = name
 
-my_die = MSDie(6)
-for i in range(5):
-    print(my_die)
-    my_die.roll()
+    def __str__(self):
+        return self.name + " : " + str(self.current_value)
 
-d_list = [MSDie(6), MSDie(20)]
-print(d_list)
+
+class animal:
+    """
+    Animal class
+    """
+    
+    def __init__(self, name, animal_type):
+        self.name = name
+        self.animal_type = animal_type
+
+    def __str__(self):
+        return self.name + " is a " + self.animal_type 
+
+if __name__ == "__main__":
+    my_die = MSDie(6)
+    for i in range(5):
+        print(my_die)
+        my_die.roll()
+
+    d_list = [MSDie(6), MSDie(20)]
+    print(d_list)
+
+    a1 = animal("bob", "bird")
+    print(a1)
+
+    d2 = namedMSDie('Alice', 12)
+    print(d2)
+    d2.roll()
+    print(d2)
