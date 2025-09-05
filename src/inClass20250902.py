@@ -135,6 +135,19 @@ class myDog(animal):
         super().__init__(name, 'dog')
         self.nLegs = 4
 
+# This shows how to overload class methods from the parent
+# and not have to rewrite the parent method
+class Animal:
+    def make_sound(self):
+        print("Generic animal sound")
+
+class Dog(Animal):
+    def make_sound(self):  # Overriding the make_sound method
+        print('Dog make_sound')
+        super().make_sound()
+        print("Woof!")
+
+
 if __name__ == "__main__":
     d6a = MSDie(6)
     print(d6a)
@@ -153,4 +166,10 @@ if __name__ == "__main__":
     sleep(2) # wait for 2 seconds
     print(f'{dog1.name} is {dog1.age()} seconds old and is a {dog1.animal_type}')
 
-    pdb.set_trace()  # pause to explore and debug the values
+    animal = Animal()
+    dog = Dog()
+
+    animal.make_sound()  # Output: Generic animal sound
+    dog.make_sound()     # Output: Woof!
+
+    # pdb.set_trace()  # pause to explore and debug the values
