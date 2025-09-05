@@ -138,11 +138,24 @@ class myDog(animal):
 # This shows how to overload class methods from the parent
 # and not have to rewrite the parent method
 class Animal:
+    """
+    Quick example animal class. Note this one has a capital A
+    """
     def make_sound(self):
+        """
+        Prints a sound for the animal
+        """
         print("Generic animal sound")
 
 class Dog(Animal):
+    """
+    Dog class to demonstrate overriding the parent class
+    method while still executing the parent class method
+    """
     def make_sound(self):  # Overriding the make_sound method
+        """
+        Calls the parent make_sound and then adds its own sound
+        """
         print('Dog make_sound')
         super().make_sound()
         print("Woof!")
